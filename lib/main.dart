@@ -1,3 +1,4 @@
+import 'package:car_bmw/car_info.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -8,6 +9,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: LoginScreen(),
     );
   }
@@ -71,47 +73,67 @@ class LoginScreen extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
-              margin: EdgeInsets.only(bottom: 10),
-              height: 48,
-              width: MediaQuery.of(context).size.width * .66,
-              decoration: BoxDecoration(
-                  color: Color(0xFF0C446B),
-                  borderRadius: BorderRadius.circular(40)),
-              child: Center(
-                child: Text(
-                  "Log in for free",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) => CarInfo()));
+              },
+              child: Container(
+                margin: const EdgeInsets.only(bottom: 10),
+                height: 48,
+                width: MediaQuery.of(context).size.width * .66,
+                decoration: BoxDecoration(
+                    color: Color(0xFF0C446B),
+                    borderRadius: BorderRadius.circular(40)),
+                child: const Center(
+                  child: Text(
+                    "Log in for free",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20),
+                  ),
                 ),
               ),
             ),
-            ConteinerPress(
+            const ConteinerPress(
               text: "Google",
             ),
-            ConteinerPress(
+            const ConteinerPress(
               text: "Fecebook",
             ),
-            ConteinerPress(
+            const ConteinerPress(
               text: "Apple",
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Don't have an account?   ",
-                  style: TextStyle(color: Colors.white),
-                ),
-                Text(
-                  "Don't have an account?   ",
-                  style: TextStyle(color: Colors.white),
-                )
-              ],
+            const Spacer(),
+            Padding(
+              padding: EdgeInsets.only(bottom: 30.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Don't have an account?   ",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w300),
+                  ),
+                  Container(
+                    child: Text(
+                      "JOIN IN",
+                      style: TextStyle(
+                          decorationThickness: 1.8,
+                          decorationColor: Colors.white,
+                          decoration: TextDecoration.underline,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  )
+                ],
+              ),
             )
           ],
         ));
@@ -126,7 +148,7 @@ class ConteinerPress extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 5),
+      margin: const EdgeInsets.symmetric(vertical: 5),
       height: 48,
       width: MediaQuery.of(context).size.width * .66,
       decoration: BoxDecoration(
@@ -142,10 +164,10 @@ class ConteinerPress extends StatelessWidget {
           ),
           Text(
             "Continue with $text",
-            style: TextStyle(
+            style: const TextStyle(
                 color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
           ),
-          SizedBox()
+          const SizedBox()
         ],
       ),
     );
