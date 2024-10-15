@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
+      home: CarInfo(),
     );
   }
 }
@@ -76,14 +76,14 @@ class LoginScreen extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => CarInfo()));
+                    MaterialPageRoute(builder: (context) => const CarInfo()));
               },
               child: Container(
                 margin: const EdgeInsets.only(bottom: 10),
                 height: 48,
                 width: MediaQuery.of(context).size.width * .66,
                 decoration: BoxDecoration(
-                    color: Color(0xFF0C446B),
+                    color: const Color(0xFF0C446B),
                     borderRadius: BorderRadius.circular(40)),
                 child: const Center(
                   child: Text(
